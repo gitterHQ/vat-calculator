@@ -36,6 +36,7 @@ var VatCalculator = require('vat-calculator');
 var vatCalc = new VatCalculator("GB", "GB107328000");
 
 /* Supports callbacks */
+/* Pass in the customer's country and VAT number */
 vatCalc.calculateVat("IE", "", function(err, vatRate) {
   // vatRate -> 20 before 1 Jan 2015, 23 after
 });
