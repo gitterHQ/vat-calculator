@@ -51,7 +51,7 @@ vatCalc.calculateVat("US", "")
     // vatRate -> 0 before and after 1 Jan 2015
   });
 
-/* Will validate against Octobar or VIES if available
+/* Will validate against Octobat or VIES if available
 /* Invalid VAT number */
 vatCalc.calculateVat("IE", "0000000000000", function(err, vatRate) {
   // vatRate -> 20 before 1 Jan 2015, 23 after
