@@ -47,7 +47,7 @@ vatCalc.calculateVat("GB", "GB1234567", function(err, vatRate) {
 
 /* Also supports promises */
 vatCalc.calculateVat("US", "")
-	.then(function(vatRate) {
+  .then(function(vatRate) {
     // vatRate -> 0 before and after 1 Jan 2015
   });
 
