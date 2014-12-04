@@ -1,6 +1,6 @@
 # vat-calculator
 
-Calculate European VAT rates. Designed to deal with the MOSS directive after 1 January 2015. For dates prior to that, will use current VAT rates.
+Calculate European VAT rates. Designed to deal with the MOSS directive after 1 January 2015. For dates prior to that, will use current VAT rules.
 
 ```shell
 npm install vat-calculator
