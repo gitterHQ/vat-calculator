@@ -1,0 +1,20 @@
+{
+  "name": "vat-calculator",
+  "version": "0.0.1",
+  "description": "Calculate European VAT rates. Designed to deal with the MOSS directive after 1 January 2015. For dates prior to that, will use current VAT rules.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec test/*"
+  },
+  "author": "Andrew Newdigate",
+  "license": "MIT",
+  "dependencies": {
+    "q": "^1.1.2",
+    "restler-q": "^0.1.1",
+    "validate-vat": "^0.3.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "rewire": "^2.1.3"
+  }
+}
