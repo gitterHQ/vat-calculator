@@ -16,5 +16,10 @@
   "devDependencies": {
     "mocha": "^2.0.1",
     "rewire": "^2.1.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gitterHQ/vat-calculator.git"
+  },
+  "bugs": "https://github.com/gitterHQ/vat-calculator/issues"
 }
