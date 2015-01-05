@@ -125,6 +125,67 @@ describe("vat-calculator", function() {
 
   });
 
+  describe("allow transaction dates to be defined", function() {
+    before(function() {
+      this.VatCalculator = rewire('../lib/vat-calculator');
+      this.vatCalculator = new this.VatCalculator("GB", IBM_GB_VAT_NUMBER);
+      this.vatCalculator._getCurrentDate = function() {
+        throw new Error('Should not be called');
+      };
+    });
+
+    describe('2015', function() {
+      it('should use the local VAT rate for EU countries', function(done) {
+        this.vatCalculator.calculateVat("IE", undefined, new Date("3 January 2015"))
+          .then(function(result) {
+            assert.strictEqual(result, IE_VAT_RATE);
+          })
+          .nodeify(done);
+      });
+
+      it('should use the local VAT rate for local customers', function(done) {
+        this.vatCalculator.calculateVat("GB", undefined, new Date("3 January 2015"))
+          .then(function(result) {
+            assert.strictEqual(result, GB_VAT_RATE);
+          })
+          .nodeify(done);
+      });
+
+      it('should use no VAT for intl customers', function(done) {
+        this.vatCalculator.calculateVat("US", undefined, new Date("3 January 2015"))
+          .then(function(result) {
+            assert.strictEqual(result, 0);
+          })
+          .nodeify(done);
+      });
+    });
+
+    describe('2014', function() {
+      it('should use the local VAT rate for EU countries', function(done) {
+        this.vatCalculator.calculateVat("IE", undefined, new Date("3 January 2014"))
+          .then(function(result) {
+            assert.strictEqual(result, GB_VAT_RATE);
+          })
+          .nodeify(done);
+      });
+
+      it('should use the local VAT rate for local customers', function(done) {
+        this.vatCalculator.calculateVat("GB", undefined, new Date("3 January 2014"))
+          .then(function(result) {
+            assert.strictEqual(result, GB_VAT_RATE);
+          })
+          .nodeify(done);
+      });
+
+      it('should use no VAT for intl customers', function(done) {
+        this.vatCalculator.calculateVat("US", undefined, new Date("3 January 2014"))
+          .then(function(result) {
+            assert.strictEqual(result, 0);
+          })
+          .nodeify(done);
+      });
+    });
 
 
+  });
 });
