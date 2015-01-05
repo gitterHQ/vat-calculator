@@ -64,6 +64,20 @@ vatCalc.calculateVat("IE", "IE6556973V", function(err, vatRate) {
   // vatRate -> 20 before 1 Jan 2015, 0 after
 });
 
+### Specifying a transaction date
+
+The transaction date can be explicitely set by passing it as a third parameter to the `calculateVat` method.
+
+
+```javascript
+var VatCalculator = require('vat-calculator');
+
+/* Initialise the library using the suppliers VAT country and number */
+var vatCalc = new VatCalculator("GB", "GB107328000");
+
+var transactionDate = new Date()
+vatCalc.calculateVat("GB", "GB1234567", transactionDate, function(err, vatRate) { });
+
 ```
 
 # License
