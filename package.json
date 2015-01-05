@@ -1,6 +1,6 @@
 {
   "name": "vat-calculator",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Calculate European VAT rates. Designed to deal with the MOSS directive after 1 January 2015. For dates prior to that, will use current VAT rules.",
   "main": "index.js",
   "scripts": {
