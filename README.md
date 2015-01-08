@@ -63,6 +63,7 @@ vatCalc.calculateVat("IE", "0000000000000", function(err, vatRate) {
 vatCalc.calculateVat("IE", "IE6556973V", function(err, vatRate) {
   // vatRate -> 20 before 1 Jan 2015, 0 after
 });
+```
 
 ### Specifying a transaction date
 
