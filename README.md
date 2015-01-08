@@ -75,7 +75,7 @@ var VatCalculator = require('vat-calculator');
 /* Initialise the library using the suppliers VAT country and number */
 var vatCalc = new VatCalculator("GB", "GB107328000");
 
-var transactionDate = new Date()
+var transactionDate = new Date();
 vatCalc.calculateVat("GB", "GB1234567", transactionDate, function(err, vatRate) {
     //
 });
