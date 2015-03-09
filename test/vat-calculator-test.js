@@ -10,6 +10,7 @@ describe("vat-calculator", function() {
   var ORACLE_IE_VAT_NUMBER = "IE6556973V";
   var GB_VAT_RATE = 20;
   var IE_VAT_RATE = 23;
+  var GR_VAT_RATE = 23;
 
   describe("dates before 1 jan 2015", function() {
     before(function() {
@@ -81,6 +82,28 @@ describe("vat-calculator", function() {
       this.vatCalculator.calculateVat("IE", "")
         .then(function(result) {
           assert.strictEqual(result, IE_VAT_RATE);
+        })
+        .nodeify(done);
+    });
+
+    it("should handle customers without a VAT number correctly", function(done) {
+      this.VatCalculator.__set__("octobatMossService", function() { return q.resolve({ vat_rate: 99 }); });
+      this.VatCalculator.__set__("vatNumberValidator", function() { return q.reject(new Error()); });
+
+      this.vatCalculator.calculateVat("GR", "")
+        .then(function(result) {
+          assert.strictEqual(result, GR_VAT_RATE);
+        })
+        .nodeify(done);
+    });
+
+    it("should handle customers without a VAT number correctly", function(done) {
+      this.VatCalculator.__set__("octobatMossService", function() { return q.resolve({ vat_rate: 99 }); });
+      this.VatCalculator.__set__("vatNumberValidator", function() { return q.reject(new Error()); });
+
+      this.vatCalculator.calculateVat("EL", "")
+        .then(function(result) {
+          assert.strictEqual(result, GR_VAT_RATE);
         })
         .nodeify(done);
     });
