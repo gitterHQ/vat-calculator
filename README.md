@@ -1,4 +1,4 @@
-# vat-calculator
+# VAT Calculator
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/gitterHQ/vat-calculator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -40,29 +40,29 @@ var vatCalc = new VatCalculator("GB", "GB107328000");
 /* Supports callbacks */
 /* Pass in the customer's country and VAT number */
 vatCalc.calculateVat("IE", "", function(err, vatRate) {
-  // vatRate -> 20 before 1 Jan 2015, 23 after
+    // vatRate -> 20 before 1 Jan 2015, 23 after
 });
 
 vatCalc.calculateVat("GB", "GB1234567", function(err, vatRate) {
-  // vatRate -> 20 before and after 1 Jan 2015
+    // vatRate -> 20 before and after 1 Jan 2015
 });
 
 /* Also supports promises */
-vatCalc.calculateVat("US", "")
-  .then(function(vatRate) {
+vatCalc.calculateVat("US", "").then(function(vatRate) {
     // vatRate -> 0 before and after 1 Jan 2015
-  });
+});
 
 /* Will validate against Octobat or VIES if available
 /* Invalid VAT number */
 vatCalc.calculateVat("IE", "0000000000000", function(err, vatRate) {
-  // vatRate -> 20 before 1 Jan 2015, 23 after
+    // vatRate -> 20 before 1 Jan 2015, 23 after
 });
 
 /* Valid VAT number */
 vatCalc.calculateVat("IE", "IE6556973V", function(err, vatRate) {
-  // vatRate -> 20 before 1 Jan 2015, 0 after
+    // vatRate -> 20 before 1 Jan 2015, 0 after
 });
+```
 
 ### Specifying a transaction date
 
@@ -75,8 +75,10 @@ var VatCalculator = require('vat-calculator');
 /* Initialise the library using the suppliers VAT country and number */
 var vatCalc = new VatCalculator("GB", "GB107328000");
 
-var transactionDate = new Date()
-vatCalc.calculateVat("GB", "GB1234567", transactionDate, function(err, vatRate) { });
+var transactionDate = new Date();
+vatCalc.calculateVat("GB", "GB1234567", transactionDate, function(err, vatRate) {
+    //
+});
 
 ```
 
